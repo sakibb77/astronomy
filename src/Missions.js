@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import MissionCard from "./MissionCard";
 import { FaMercury, FaSpaceShuttle } from "react-icons/fa";
 import { TbZodiacGemini } from "react-icons/tb";
+import { useGsapMissionCard, useGsapTitleUnvail } from "./hook/gsap";
 
 const missionArr = [
   {
@@ -27,19 +28,29 @@ const missionArr = [
   },
 ];
 const Missions = () => {
+  const missionCardWrapperRef = useRef(null);
+  const missionRef = useRef(null);
+  const missionTitleRef = useRef(null);
+  const missionDescriptionRef = useRef(null);
+
+  useGsapMissionCard(missionCardWrapperRef, missionRef);
+  useGsapTitleUnvail(missionTitleRef, missionRef);
+
   return (
-    <section className="missions">
+    <section className="missions" ref={missionRef}>
       <div className="wrapper">
         <div className="mission-title">
-          <h2 className="section-title">Every Mission to the Moon, Ever</h2>
-          <p>
+          <h2 className="section-title" ref={missionTitleRef}>
+            Every Mission to the Moon, Ever
+          </h2>
+          <p ref={missionDescriptionRef}>
             It only takes a couple days to send most spacecraft to the Moon, so
             it's not surprising that humans have sent more missions there than
             anywhere else. The Moon is also the only celestial body besides
             Earth where humans have visited.
           </p>
         </div>
-        <div className="card-wrapper">
+        <div className="card-wrapper" ref={missionCardWrapperRef}>
           {missionArr.map((mission) => (
             <MissionCard mission={mission} key={mission.id} />
           ))}

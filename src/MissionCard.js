@@ -15,7 +15,7 @@ const MissionCard = ({ mission }) => {
       <div className="card-des">
         <p>{mission.description}</p>
       </div>
-      <Link>read more</Link>
+      <Link>read more &rarr;</Link>
     </div>
   );
 };
