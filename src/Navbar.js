@@ -9,8 +9,9 @@ const Navbar = () => {
   const li1 = useRef(null);
   const li2 = useRef(null);
   const li3 = useRef(null);
+  const li4 = useRef(null);
 
-  const liArr = [li1, li2, li3];
+  const liArr = [li1, li2, li3, li4];
 
   useGsapRocketLeftToRight(rocketRef);
   useGsapMenuStagger(liArr, 2);
@@ -30,6 +31,9 @@ const Navbar = () => {
           </li>
           <li ref={li3}>
             <Link to={"/gallery"}>gallery</Link>
+          </li>
+          <li ref={li4}>
+            <Link to={"/blog"}>blog</Link>
           </li>
         </ul>
       </div>
