@@ -45,14 +45,14 @@ const blogData = [
       "https://images.pexels.com/photos/2101631/pexels-photo-2101631.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    id: 6,
+    id: 7,
     title: "About the Telescope",
     body: "Orbiting high above the Earth, the Hubble Space Telescope has a clear view of the universe free from the blurring and absorbing effects of the",
     image:
       "https://images.pexels.com/photos/2101631/pexels-photo-2101631.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    id: 6,
+    id: 8,
     title: "About the Telescope",
     body: "Orbiting high above the Earth, the Hubble Space Telescope has a clear view of the universe free from the blurring and absorbing effects of the",
     image:

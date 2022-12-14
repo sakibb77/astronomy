@@ -4,6 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import Missions from "./Missions";
 import Gallery from "./Gallery";
 import Blog from "./Blog";
+import Footer from "./Footer";
+import PageNotFound from "./PageNotFound";
+import CopyRight from "./CopyRight";
 
 function App() {
   return (
@@ -14,7 +17,10 @@ function App() {
         <Route path="/mission" element={<Missions />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
+      <CopyRight />
     </div>
   );
 }

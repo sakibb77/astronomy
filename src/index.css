@@ -115,9 +115,14 @@ section {
 }
 
 .links a {
-  /* font-size: ; */
   color: var(--color-lighter);
   font-size: 1.5rem;
+  transition: 0.5s;
+}
+
+.links a:hover {
+  /* font-size: ; */
+  color: var(--color-secondary);
 }
 
 .logo h2 {
@@ -149,6 +154,7 @@ section {
   position: relative;
   z-index: 3;
   /* display: inline-block; */
+  color: var(--color-lighter);
 }
 
 .hero-h1-f .hero-h1-l {
@@ -400,4 +406,89 @@ section {
 
 .blog-card:hover::before {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer {
+  padding: 12vh 0;
+  background-color: var(--bg-secondary);
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-menu {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.footer-menu a {
+  color: var(--color-darker);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.footer-contact form input {
+  padding: 0.8rem;
+  background-color: transparent;
+  font-size: 1.8rem;
+  color: var(--color-darker);
+}
+
+.footer-contact form input:-moz-placeholder {
+  font-size: 1.6rem;
+}
+
+.footer-contact form input:focus {
+  border: none;
+  outline: none;
+}
+
+.footer-contact form input[type="email"] {
+  /* border: none; */
+  border: 1px solid var(--color-darker);
+}
+
+.footer-contact form input[type="submit"] {
+  color: var(--color-secondary);
+  border: 1px solid var(--color-darker);
+}
+
+.contact-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-icon svg {
+  margin: 0 1.2rem;
+}
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.not-found img {
+  width: 50%;
+}
+
+.copy-right-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--bg-primary);
+}
+
+.copy-right-section {
+  color: var(--color-darker);
 }
