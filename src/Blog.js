@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import BlogCard from "./BlogCard";
+import { useGsapUnvailCard } from "./hook/gsap";
 
 const blogData = [
   {
@@ -61,12 +62,17 @@ const blogData = [
 ];
 
 const Blog = () => {
+  const blogRef = useRef(null);
+  const blogcardRef = useRef(null);
+
+  useGsapUnvailCard(blogcardRef, blogRef);
+
   return (
-    <section className="blog">
+    <section className="blog" ref={blogRef}>
       <h2 className="section-title">blog</h2>
-      <div className="wrapper blog-wrapper">
+      <div className="wrapper blog-wrapper" ref={blogcardRef}>
         {blogData.map((blog) => (
-          <BlogCard blog={blog} key={blog.id} />
+          <BlogCard key={blog.id} blog={blog} blogRef={blogRef} />
         ))}
       </div>
     </section>

@@ -122,11 +122,16 @@ export const useGsapPhotoDropping = (arr, trig) => {
     gsap.fromTo(
       el,
       {
-        display: "block",
+        y: "-50%",
+        opacity: 0,
+        // scale: 0,
       },
       {
-        display: "grid",
-        duration: 2,
+        y: 0,
+        // scale: 1,
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
         ease: Expo.easeIn,
         scrollTrigger: {
           trigger: trig.current,
@@ -169,7 +174,7 @@ export const useGsapMissionCard = (item, trig) => {
     gsap.fromTo(
       el,
       {
-        y: "30%",
+        y: "70%",
         opacity: 0,
       },
       {
@@ -182,6 +187,35 @@ export const useGsapMissionCard = (item, trig) => {
           end: "bottom 5%",
           toggleActions: "play reverse play reverse",
         },
+      }
+    );
+  }, []);
+};
+
+export const useGsapUnvailCard = (item, trig) => {
+  useEffect(() => {
+    // cardArr = [...cardArr, item];
+    const el = item.current;
+
+    gsap.fromTo(
+      el,
+      {
+        y: "60%",
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: trig.current,
+          toggleActions: "play reverse play reverse",
+        },
+        // stagger: {
+        //   each: 0.05,
+        //   from: "start",
+        // },
+        // stagger: 0.08,
       }
     );
   }, []);

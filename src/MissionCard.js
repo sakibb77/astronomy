@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const MissionCard = ({ mission }) => {
   const Icon = mission.icon;
-  console.log(mission.icon);
   return (
     <div className="card">
       <div className="card-icon">

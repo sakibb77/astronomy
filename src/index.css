@@ -230,6 +230,13 @@ section {
   max-height: 30rem;
 }
 
+.card-icon {
+  align-self: flex-start;
+  overflow: hidden;
+  height: fit-content;
+  width: fit-content;
+}
+
 .card h3 {
   font-size: 2.2rem;
   color: var(--color-primery);
