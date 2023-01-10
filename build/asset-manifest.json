@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.d5b68c20.css",
-    "main.js": "/static/js/main.142aeecf.js",
+    "main.css": "/static/css/main.96ad3fe1.css",
+    "main.js": "/static/js/main.ac449e1d.js",
+    "static/media/spacewalk.png": "/static/media/spacewalk.34c22b4f769cb50c8801.png",
     "static/media/not-found.png": "/static/media/not-found.c5dbf26bce8d7c5d3093.png",
     "index.html": "/index.html",
-    "main.d5b68c20.css.map": "/static/css/main.d5b68c20.css.map",
-    "main.142aeecf.js.map": "/static/js/main.142aeecf.js.map"
+    "main.96ad3fe1.css.map": "/static/css/main.96ad3fe1.css.map",
+    "main.ac449e1d.js.map": "/static/js/main.ac449e1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5b68c20.css",
-    "static/js/main.142aeecf.js"
+    "static/css/main.96ad3fe1.css",
+    "static/js/main.ac449e1d.js"
   ]
 }
