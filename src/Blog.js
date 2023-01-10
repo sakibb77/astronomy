@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import BlogCard from "./BlogCard";
-import { useGsapUnvailCard } from "./hook/gsap";
+import {
+  useGsapBottomToTop,
+  useGsapTitleUnvail,
+  useGsapUnvailCard,
+} from "./hook/gsap";
 
 const blogData = [
   {
@@ -47,7 +51,7 @@ const blogData = [
     title: "NASA's retired flying telescope heads to museum",
     body: "After eight years of science missions, the Stratospheric Observatory for Infrared Astronomy (SOFIA) aircraft has found permanent residence at the Pima Air & Space Museum in Arizona.",
     image:
-      "https://cdn.mos.cms.futurecdn.net/fZm2yAe5MdFrANnkrQZrae-1200-80.jpg.webphttps://images.pexels.com/photos/2101631/pexels-photo-2101631.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://cdn.mos.cms.futurecdn.net/fZm2yAe5MdFrANnkrQZrae-1200-80.jpg.webp",
   },
   {
     id: 7,
@@ -69,12 +73,16 @@ const blogData = [
 const Blog = () => {
   const blogRef = useRef(null);
   const blogcardRef = useRef(null);
+  const sectionTitleRef = useRef(null);
 
-  useGsapUnvailCard(blogcardRef, blogRef);
+  useGsapBottomToTop([blogcardRef], blogRef);
+  useGsapTitleUnvail(sectionTitleRef, blogRef);
 
   return (
     <section className="blog" ref={blogRef}>
-      <h2 className="section-title">blog</h2>
+      <h2 className="section-title" ref={sectionTitleRef}>
+        blog
+      </h2>
       <div className="wrapper blog-wrapper" ref={blogcardRef}>
         {blogData.map((blog) => (
           <BlogCard key={blog.id} blog={blog} blogRef={blogRef} />

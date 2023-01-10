@@ -10,17 +10,21 @@ const Navbar = () => {
   const li2 = useRef(null);
   const li3 = useRef(null);
   const li4 = useRef(null);
+  const logoRef = useRef(null);
 
   const liArr = [li1, li2, li3, li4];
 
   useGsapRocketLeftToRight(rocketRef);
-  useGsapMenuStagger(liArr, 2);
+  useGsapMenuStagger(liArr, undefined, 2);
+  useGsapMenuStagger([logoRef], undefined, 1);
 
   return (
     <nav className="navbar">
       <div className="nav-wrapper">
         <div className="logo">
-          <h2>astronomy</h2>
+          <h2 ref={logoRef}>
+            space<span>Mission</span>
+          </h2>
         </div>
         <ul className="links">
           <li ref={li1}>

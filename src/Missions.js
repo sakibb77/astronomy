@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import MissionCard from "./MissionCard";
 import { FaMercury, FaSpaceShuttle } from "react-icons/fa";
 import { TbZodiacGemini } from "react-icons/tb";
-import { useGsapMissionCard, useGsapTitleUnvail } from "./hook/gsap";
+import { useGsapBottomToTop, useGsapTitleUnvail } from "./hook/gsap";
 
 const missionArr = [
   {
@@ -30,17 +30,22 @@ const missionArr = [
 const Missions = () => {
   const missionCardWrapperRef = useRef(null);
   const missionRef = useRef(null);
-  const missionTitleRef = useRef(null);
+  const TitleShutterRef = useRef(null);
   const missionDescriptionRef = useRef(null);
 
-  useGsapMissionCard(missionCardWrapperRef, missionRef);
-  useGsapTitleUnvail(missionTitleRef, missionRef);
+  const missionCartAndDescripArr = [
+    missionDescriptionRef,
+    missionCardWrapperRef,
+  ];
+
+  useGsapBottomToTop(missionCartAndDescripArr, missionRef);
+  useGsapTitleUnvail(TitleShutterRef, missionRef);
 
   return (
     <section className="missions" ref={missionRef}>
       <div className="wrapper">
         <div className="mission-title">
-          <h2 className="section-title" ref={missionTitleRef}>
+          <h2 className="section-title" ref={TitleShutterRef}>
             Every Mission to the Moon, Ever
           </h2>
           <p ref={missionDescriptionRef}>

@@ -4,21 +4,29 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const useGsapMenuStagger = (arr, delay = 0) => {
+export const useGsapMenuStagger = (arr, trig, delay = 0) => {
   useEffect(() => {
     const el = arr.map((item) => item.current);
 
     gsap.fromTo(
       el,
       {
-        y: "-150%",
+        y: "-100%",
+        opacity: 0,
       },
       {
         y: 0,
+        opacity: 1,
         duration: 1,
         delay: delay,
         ease: Expo.easeIn,
-        stagger: 0.1,
+        stagger: 0.09,
+        scrollTrigger: {
+          start: "top center",
+          end: "bottom -10%",
+          trigger: trig && trig.current,
+          toggleActions: "play reverse play reverse",
+        },
       }
     );
   }, []);
@@ -32,11 +40,11 @@ export const useGsapHeroTitleUnvail = (item, trig, delay = 0) => {
       el,
       {
         x: "-100vw",
-        scale: 0,
+        // scale: 0,
       },
       {
         x: 0,
-        scale: 1,
+        // scale: 1,
         duration: 2.5,
         delay: delay,
         ease: Expo.easeInOut,
@@ -59,11 +67,11 @@ export const useGsapShutterUnvail2 = (item, trig, delay = 0) => {
       el,
       {
         y: "-100vw",
-        scale: 0,
+        // scale: 0,
       },
       {
         y: 0,
-        scale: 1,
+        // scale: 1,
         duration: 2.5,
         delay: delay,
         ease: Expo.easeInOut,
@@ -97,24 +105,6 @@ export const useGsapRocketLeftToRight = (item) => {
   }, []);
 };
 
-export const useGsapShowMoon = (item) => {
-  useEffect(() => {
-    const el = item.current;
-
-    gsap.fromTo(
-      el,
-      {
-        scale: 0,
-      },
-      {
-        scale: 1,
-        duration: 4,
-        ease: Expo.easeInOut,
-      }
-    );
-  }, []);
-};
-
 export const useGsapPhotoDropping = (arr, trig) => {
   useEffect(() => {
     const el = arr.map((item) => item.current);
@@ -122,23 +112,17 @@ export const useGsapPhotoDropping = (arr, trig) => {
     gsap.fromTo(
       el,
       {
-        y: "-50%",
         opacity: 0,
-        // scale: 0,
       },
       {
-        y: 0,
-        // scale: 1,
         opacity: 1,
         duration: 1,
-        delay: 0.5,
         ease: Expo.easeIn,
         scrollTrigger: {
           trigger: trig.current,
           toggleActions: "play reverse play reverse",
         },
-        // stagger: 0.1,
-        // delay: 2.5,
+        stagger: 0.2,
       }
     );
   }, []);
@@ -150,41 +134,17 @@ export const useGsapTitleUnvail = (item, trig) => {
     gsap.fromTo(
       el,
       {
-        y: "30%",
+        x: "100vw",
         opacity: 0,
       },
       {
-        y: 0,
+        x: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 1,
         scrollTrigger: {
           trigger: trig.current,
-          // start: "top 5%",
-          // end: "bottom 5%",
-          // toggleActions: "play reverse play reverse",
-        },
-      }
-    );
-  }, []);
-};
-
-export const useGsapMissionCard = (item, trig) => {
-  useEffect(() => {
-    const el = item.current;
-    gsap.fromTo(
-      el,
-      {
-        y: "70%",
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: trig.current,
-          start: "top 5%",
-          end: "bottom 5%",
+          start: "top center",
+          end: "bottom center",
           toggleActions: "play reverse play reverse",
         },
       }
@@ -192,30 +152,27 @@ export const useGsapMissionCard = (item, trig) => {
   }, []);
 };
 
-export const useGsapUnvailCard = (item, trig) => {
+export const useGsapBottomToTop = (arr, trig, view = "20%", delay = 0) => {
   useEffect(() => {
-    // cardArr = [...cardArr, item];
-    const el = item.current;
-
+    const el = arr.map((item) => item.current);
     gsap.fromTo(
       el,
       {
-        y: "60%",
+        y: "40%",
         opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
-        duration: 1.5,
+        duration: 0.7,
         scrollTrigger: {
           trigger: trig.current,
+          start: `top ${view}`,
+          end: "bottom -10%",
           toggleActions: "play reverse play reverse",
         },
-        // stagger: {
-        //   each: 0.05,
-        //   from: "start",
-        // },
-        // stagger: 0.08,
+        stagger: 0.5,
+        delay: delay,
       }
     );
   }, []);
